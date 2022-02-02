@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+{% block content %}
+
+
+<div class="profile-head">
+       <h1>@{{user.username}}</h1>
+
+</div>
+
+<div class="profile-body">
+
+    <div class="profile-body-topic">
+         
+        {% include 'topic_component.html' %}
+
+    </div>
+
+    <div class="profile-body-room">
+         
+        {% include 'room_component.html' %}
+
+    </div>
+
+    <div class="profile-body-activity">
+         
+        {% include 'activity_component.html' %}
+
+    </div>
+
+</div>
+
+{% endblock %}

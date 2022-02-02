@@ -1,0 +1,21 @@
+<h1>ACTIVITIES</h1>
+<h5>{{room_count}} room avvalible!</h5>
+<a href="{% url 'created-room' %}">CREATED</a>
+<hr>
+            {%  for room in rooms %}
+                    <div>
+                        <a href="{% url 'profile-user' room.host.id %}">@{{room.host.username}}</a>
+                        <h2>{{room.id}}. <a href="{% url 'room' room.id %}">{{room.name}}</a></h2>
+                        <p>{{room.description}}</p>
+                        <small>{{room.topic.name}}</small>
+                        <br><br>
+                        {% if request.user == room.host %}
+                        <a href="{% url 'updated-room' room.id %}">UPDATE</a>
+                        <br>
+                        <br>
+                        <a href="{% url 'deleted-room' room.id %}">DELETE</a>
+                        <hr>
+                        {% endif %}                 
+                        
+                    </div>
+            {% endfor %}   

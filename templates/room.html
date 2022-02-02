@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+{% block content %}
+ <h1> ROOM PAGE </h1>
+<a href="#">{{room}}</a>
+
+<style>
+    .room-continer{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
+</style>
+
+<div class="room-continer">
+
+    <div class="commit-continer">
+        <div class="commit-head">
+            <h1 style="text-align: center;">Conversation</h1>
+            <hr>
+            {% for message in room_messages %}
+                 <div>
+                     {% if request.user == message.user %}
+                        <a href="{% url 'deleted-message' message.id %}">Delete</a>
+                     {% endif %}
+                     <small>@{{message.user}}  {{message.created | timesince }} ago</small>
+                     <p>{{message.body}}</p>
+                     <hr>
+                 </div>
+            {% endfor %}
+        </div>
+        
+        <div class="commit-body">
+        
+            {% if request.user.is_authenticated %}
+              <form method="POST" action="">{% csrf_token %}
+        
+                  <input type="text" name='body' placeholder="Write your message...">
+        
+              </form>
+        
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div class="participants-continer">
+         
+        <h1>Participants</h1>
+        <hr>
+        {% for participant in participants %}
+            <p>@{{participant.username}}</p>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock%}

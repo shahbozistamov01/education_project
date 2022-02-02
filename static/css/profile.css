@@ -1,0 +1,29 @@
+h1{
+    text-align: center;
+}
+.profile-body{
+    display: grid;
+    background-color: rgb(179, 236, 236);
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.profile-body-topic{
+    padding: 30px;
+    margin-top: 10px;
+    background-color: rgb(138, 234, 241);
+    text-decoration-style:solid;
+}
+
+.profile-body-room{
+    padding: 30px;
+    margin: 10px;
+    background-color: rgb(141, 235, 207);
+    text-decoration-style:solid;
+}
+
+.profile-body-activity{
+    padding: 30px;
+    margin-top: 10px;
+    background-color: rgb(138, 234, 241);
+    text-decoration-style:solid;
+}
